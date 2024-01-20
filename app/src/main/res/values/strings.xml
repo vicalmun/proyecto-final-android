@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ElReyEstefano</string>
+
+    <string name="action_ok">Aceptar</string>
+    <string name="action_retry">Reintentar</string>
+    <string name="error">Error</string>
 </resources>

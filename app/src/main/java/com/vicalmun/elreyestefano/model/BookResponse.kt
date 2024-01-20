@@ -7,16 +7,20 @@ data class BookResponse (
     @SerializedName("data") val books: List<Book>
 )
 
+data class BookDetailResponse (
+    @SerializedName("data") val book: Book
+)
+
 @Keep
 data class Book (
-    val id: Long,
-    val year: Long,
-    val title: String,
+    val id: Int,
+    val Year: Int,
+    val Title: String,
     val handle: String,
     val publisher: String,
     val isbn: String,
-    val pages: Long,
-    val notes: List<String>,
+    val Pages: Int,
+    val Notes: List<String>,
     val createdAt: String,
     val villains: List<Villain>
 )
