@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="very_large_title">48sp</dimen>
-    <dimen name="large_title">24sp</dimen>
-    <dimen name="title">12sp</dimen>
-
+    <dimen name="large_title">36sp</dimen>
+    <dimen name="title">24sp</dimen>
+    <dimen name="title2">18sp</dimen>
+    <dimen name="subtitle">12sp</dimen>
 
     <dimen name="margin_xs">8dp</dimen>
     <dimen name="margin_s">16dp</dimen>
