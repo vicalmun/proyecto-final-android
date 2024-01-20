@@ -6,11 +6,14 @@ import androidx.navigation.fragment.navArgs
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.vicalmun.elreyestefano.R
 import com.vicalmun.elreyestefano.databinding.FragmentBookDetailBinding
 import com.vicalmun.elreyestefano.model.Book
 import com.vicalmun.elreyestefano.model.ResourceState
+import com.vicalmun.elreyestefano.presentation.adapter.BookListAdapter
+import com.vicalmun.elreyestefano.presentation.adapter.NotesListAdapter
 import com.vicalmun.elreyestefano.presentation.viewmodel.BookViewModel
 import org.koin.androidx.viewmodel.ext.android.activityViewModel
 
@@ -19,6 +22,8 @@ class BookDetailFragment : Fragment() {
     private val binding: FragmentBookDetailBinding by lazy {
         FragmentBookDetailBinding.inflate(layoutInflater)
     }
+
+    private val noteListAdapter = NotesListAdapter()
 
     private val args: BookDetailFragmentArgs by navArgs()
 
@@ -53,6 +58,7 @@ class BookDetailFragment : Fragment() {
 
             is ResourceState.Success -> {
                 binding.pbBookDetail.visibility = View.GONE
+                noteListAdapter.submitList(state.result.Notes)
                 initUI(state.result)
             }
 
@@ -67,6 +73,9 @@ class BookDetailFragment : Fragment() {
         binding.tvDetailBookTitle.text = book.Title
         binding.tvDetailBookYear.text = "Año de salida: ${book.Year}"
         binding.tvDetailBookPages.text = "Páginas: ${book.Pages}"
+
+        binding.rvNotesList.adapter = noteListAdapter
+        binding.rvNotesList.layoutManager = LinearLayoutManager(requireContext())
     }
 
     private fun showErrorDialog(error: String) {
