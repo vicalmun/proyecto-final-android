@@ -59,6 +59,17 @@
         android:text="Notas:"
         />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_notes_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_detail_book_notes"
+        tools:listitem="@layout/row_note_item"
+        tools:itemCount="10"
+        />
+
     <ProgressBar
         android:id="@+id/pb_book_detail"
         android:layout_width="wrap_content"
